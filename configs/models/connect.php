@@ -9,7 +9,7 @@ class Koneksi
   public $host = 'localhost';
   public $user = 'root';
   public $pass = '';
-  public $dbnm = 'si_project';
+  public $dbnm = 'db_spk_electre';
   public $kon;
 
   // fungsi untuk koneksi ke database menggunakan pdo
