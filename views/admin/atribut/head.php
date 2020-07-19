@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="../../assets/admin/assets/icon/feather/css/feather.css">
     <link rel="stylesheet" type="text/css" href="../../assets/admin/assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="../../assets/admin/assets/css/widget.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/admin/assets/icon/icofont/css/icofont.css">
 
     <?php
     $content = (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $_REQUEST['content'])) ? str_replace('-', '_', $_REQUEST['content']) : $_REQUEST['content'];

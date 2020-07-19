@@ -198,12 +198,12 @@
                         </a>
                         <ul class="pcoded-submenu">
                             <li class="">
-                                <a href="widget-statistic.html" class="waves-effect waves-dark">
+                                <a href="kriteria" class="waves-effect waves-dark">
                                     <span class="pcoded-mtext">Data Kriteria</span>
                                 </a>
                             </li>
                             <li class="">
-                                <a href="widget-data.html" class="waves-effect waves-dark">
+                                <a href="data_kelompok" class="waves-effect waves-dark">
                                     <span class="pcoded-mtext">Data Kelompok Ternak</span>
                                 </a>
                             </li>
