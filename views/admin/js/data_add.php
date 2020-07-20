@@ -16,10 +16,10 @@
         $('#form-add').submit(function(e) {
             e.preventDefault();
 
-            $('#judul').attr('required', 'required');
-            $('#link').attr('required', 'required');
-            $('#email').attr('required', 'required');
-            $('#text').attr('required', 'required');
+            $('#nm_kelp').attr('required', 'required');
+            $('#almt_kelp').attr('required', 'required');
+            $('#notelp_kelp').attr('required', 'required');
+            // $('#text').attr('required', 'required');
 
             if ($('#form-add').parsley().isValid() == true) {
                 $.ajax({

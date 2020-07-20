@@ -104,29 +104,32 @@
                            </button>
                        </div>
                        <div class="modal-body">
-                           <form>
+                           <form action="aksi/?aksi=alternatif_add" id="form-add">
+                           <?php
+                                // $id_oto = $myfun->get_kode_otomatis('tb_data', 'id_data', 'INP');
+                            ?>
                                <div class="form-group row">
                                    <label class="col-sm-3 col-form-label">Nama Kelompok</label>
                                    <div class="col-sm-8">
-                                       <input type="text" class="form-control">
+                                       <input type="text" class="form-control" name="nm_kelp" id="nm_kelp">
                                    </div>
                                </div>
                                <div class="form-group row">
                                    <label class="col-sm-3 col-form-label">Alamat Kelompok</label>
                                    <div class="col-sm-8">
-                                       <input type="text" class="form-control">
+                                       <input type="text" class="form-control" name="almt_kelp" id="almt_kelp">
                                    </div>
                                </div>
                                <div class="form-group row">
                                    <label class="col-sm-3 col-form-label">No Telepon Kelompok</label>
                                    <div class="col-sm-8">
-                                       <input type="text" class="form-control">
+                                       <input type="text" class="form-control" name="notelp_kelp" id="notelp_kelp">
                                    </div>
                                </div>
                                <div class="form-group row">
                                    <label class="col-sm-3 col-form-label">Status Kelompok</label>
                                    <div class="col-sm-4">
-                                       <select name="select" class="form-control">
+                                       <select name="status_kelp" class="form-control">
                                            <option value="opt1">Pilih Status
                                            </option>
                                            <option value="opt2"></option>
@@ -142,13 +145,13 @@
                                <div class="form-group row">
                                    <label class="col-sm-3 col-form-label">Sertifikat Ternak</label>
                                    <div class="col-sm-8">
-                                       <input type="file" class="form-control">
+                                       <input type="file" class="form-control" name="sertifi_kelp">
                                    </div>
                                </div>
                                <div class="form-group row">
                                    <label class="col-sm-3 col-form-label">Status Bantuan</label>
                                    <div class="col-sm-4">
-                                       <select name="select" class="form-control">
+                                       <select name="status_bantuan" class="form-control">
                                            <option value="opt1">Pilih Status Bantuan
                                            </option>
                                            <option value="opt2"></option>
@@ -159,7 +162,7 @@
                                <div class="form-group row">
                                    <label class="col-sm-3 col-form-label">Sistem Pemeliharaan</label>
                                    <div class="col-sm-4">
-                                       <select name="select" class="form-control">
+                                       <select name="sistem_pemilihan" class="form-control">
                                            <option value="opt1">Pilih Sistem Pemeliharaan
                                            </option>
                                            <option value="opt2"></option>
@@ -171,7 +174,7 @@
                                <div class="form-group row">
                                    <label class="col-sm-3 col-form-label">Pelayanan Kesehatan</label>
                                    <div class="col-sm-4">
-                                       <select name="select" class="form-control">
+                                       <select name="plyn_kesehatan" class="form-control">
                                            <option value="opt1">Pilih Pelayanan Kesehatan
                                            </option>
                                            <option value="opt2"></option>
@@ -186,7 +189,7 @@
                        <div class="modal-footer">
                            <button type="button" class="btn btn-default btn-sm waves-effect "
                                data-dismiss="modal">Keluar</button>
-                           <button type="button" class="btn btn-primary btn-sm waves-effect waves-light ">Simpan
+                           <button type="submit" name="add" id="add" class="btn btn-primary btn-sm waves-effect waves-light ">Simpan
                                Perubahan</button>
                        </div>
                    </div>

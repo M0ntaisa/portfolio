@@ -1,5 +1,5 @@
 <?php
-// $id_oto = $myfun->get_kode_otomatis('tb_data', 'id_data', 'INP');
+$id_oto = $myfun->get_kode_otomatis('tb_data', 'id_data', 'INP');
 ?>
 <h2>Tambah Data</h2>
 
