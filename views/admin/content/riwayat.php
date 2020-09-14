@@ -6,7 +6,7 @@
                        <div class="row align-items-center">
                            <div class="col-md-8">
                                <div class="page-header-title">
-                                   <h4 class="m-b-10">Kriteria</h4>
+                                   <h4 class="m-b-10">Riwayat</h4>
                                </div>
                                <ul class="breadcrumb">
                                    <li class="breadcrumb-item">
@@ -15,7 +15,7 @@
                                        </a>
                                    </li>
                                    <li class="breadcrumb-item">
-                                       <a href="#!">Data Kriteria</a>
+                                       <a href="#!">Data Riwayat</a>
                                    </li>
                                </ul>
                            </div>
@@ -41,31 +41,18 @@
                                                            <tr>
                                                                <th>No</th>
                                                                <th>Kriteria</th>
-                                                               <th width="30px">Weight</th>
                                                                <th>Aksi</th>
                                                            </tr>
                                                        </thead>
                                                        <tbody>
-                                                       <form action="post">
-                                                            <?php
-                                                                $query  = $pdo->getAll('tb_kriteria', 'id_kriteria');
-                                                                $jumlah = $query->rowCount();
-                                                                $no = 1;
-                                                                if ($jumlah > 0) {
-                                                                    while ($row = $query->fetch(PDO::FETCH_OBJ)) { ?>
-                                                                <!-- <form action="aksi/?aksi=kriteria_upd&kd_kriteria=<?= $row->kd_kriteria ?>"> -->
-                                                                    <tr>
-                                                                        <td width="10"><?= $no++; ?></td>
-                                                                        <td><?= $row->nm_kriteria; ?></td>
-                                                                        <td><input type="number" min="0" max="" value="<?= $row->weight; ?>"></td>
-                                                                        <td width="15">
-                                                                            <button type="submit" value="ubah" name="ubah" class="btn btn-warning btn-sm">Ubah</button>
-                                                                        </td>
-                                                                    </tr>
-                                                                
-                                                                <?php } ?>
-                                                            <?php } ?>
-                                                            </form>
+                                                           <tr>
+                                                               <td width="10">Tiger Nixon</td>
+                                                               <td>System Architect</td>
+                                                               <td width="15"><button type="button"
+                                                                       class="btn btn-primary btn-sm"
+                                                                       data-toggle="modal"
+                                                                       data-target="#large-Modal">Ubah</button></td>
+                                                           </tr>
                                                        </tbody>
                                                    </table>
                                                </div>
@@ -118,21 +105,3 @@
                    </div>
                </div>
            </div>
-
-           <?php
-                if (isset($_POST['ubah'])) {
-
-                    echo "<pre>";
-                    print_r($_POST);die;
-
-                // untuk fungsi update parameternya (nama_tabel, id untuk where, id untuk nilai, nama_kolom, nama_value/nama_hasil)
-                $update = $pdo->Update('tb_data', 'id_data' ,$id_data, ['judul', 'link', 'text'], [$judul, $link, $text]);
-
-                if ($update == TRUE) {
-                    echo "Berhasil";
-                } else {
-                    echo "Gagal";
-                }
-
-                }
-            ?>

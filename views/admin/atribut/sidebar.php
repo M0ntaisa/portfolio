@@ -210,15 +210,15 @@
                         </ul>
                     </li>
                     <li class="">
-                        <a href="navbar-light.html" class="waves-effect waves-dark">
+                        <a href="algoritma" class="waves-effect waves-dark">
                             <span class="pcoded-micon">
                                 <i class="feather icon-check"></i>
                             </span>
-                            <span class="pcoded-mtext">Proses Algoritma</span>
+                            <span class="pcoded-mtext">Algoritma</span>
                         </a>
                     </li>
                     <li class="">
-                        <a href="navbar-light.html" class="waves-effect waves-dark">
+                        <a href="riwayat" class="waves-effect waves-dark">
                             <span class="pcoded-micon">
                                 <i class="feather icon-book"></i>
                             </span>

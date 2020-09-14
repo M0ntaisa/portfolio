@@ -31,4 +31,4 @@
     ?>
 
     <!-- jquery cdn -->
-    <script rel="preload" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script rel="preload" type="text/javascript" src="../../assets/admin/bower_components/jquery/js/jquery.min.js"></script>

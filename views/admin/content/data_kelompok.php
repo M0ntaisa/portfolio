@@ -53,22 +53,30 @@
                                                            </tr>
                                                        </thead>
                                                        <tbody>
-                                                           <tr>
-                                                               <td width="10"></td>
-                                                               <td></td>
-                                                               <td></td>
-                                                               <td width="15">
-                                                                   <button type="button" class="btn btn-warning btn-sm"
-                                                                       data-toggle="modal"
-                                                                       data-target="#large-Modal">Ubah</button>&nbsp;
-                                                                   <button type="button" class="btn btn-danger btn-sm"
-                                                                       data-toggle="modal"
-                                                                       data-target="#large-Modal">Hapus</button>&nbsp;
-                                                                       <button type="button" class="btn btn-primary btn-sm"
-                                                                       data-toggle="modal"
-                                                                       data-target="#large-Modal">Detail</button>&nbsp;
-                                                               </td>
-                                                           </tr>
+                                                            <?php
+                                                                $query  = $pdo->getAll('tb_alternatif', 'id_alternatif');
+                                                                $jumlah = $query->rowCount();
+                                                                $no = 1;
+                                                                if ($jumlah > 0) {
+                                                                    while ($row = $query->fetch(PDO::FETCH_OBJ)) { ?>
+                                                                <tr>
+                                                                    <td width="10"><?= $no++; ?></td>
+                                                                    <td><?= $row->kd_alternatif; ?></td>
+                                                                    <td><?= $row->nama; ?></td>
+                                                                    <td width="15">
+                                                                        <button type="button" class="btn btn-warning btn-sm"
+                                                                            data-toggle="modal"
+                                                                            data-target="#large-Modal">Ubah</button>&nbsp;
+                                                                            <button type="button" class="btn btn-info btn-sm"
+                                                                            data-toggle="modal"
+                                                                            data-target="#large-Modal">Detail</button>&nbsp;
+                                                                        <button type="button" class="btn btn-danger btn-sm"
+                                                                            data-toggle="modal"
+                                                                            data-target="#large-Modal">Hapus</button>&nbsp;
+                                                                    </td>
+                                                                </tr>
+                                                                <?php } ?>
+                                                            <?php } ?>
                                                        </tbody>
                                                    </table>
                                                </div>
@@ -103,11 +111,8 @@
                                <span aria-hidden="true">&times;</span>
                            </button>
                        </div>
-                       <div class="modal-body">
-                           <form action="aksi/?aksi=alternatif_add" id="form-add">
-                           <?php
-                                // $id_oto = $myfun->get_kode_otomatis('tb_data', 'id_data', 'INP');
-                            ?>
+                       <form action="aksi/?aksi=alternatif_add" id="form-add">
+                           <div class="modal-body">
                                <div class="form-group row">
                                    <label class="col-sm-3 col-form-label">Nama Kelompok</label>
                                    <div class="col-sm-8">
@@ -123,75 +128,102 @@
                                <div class="form-group row">
                                    <label class="col-sm-3 col-form-label">No Telepon Kelompok</label>
                                    <div class="col-sm-8">
-                                       <input type="text" class="form-control" name="notelp_kelp" id="notelp_kelp">
+                                       <input type="number" class="form-control" name="notelp_kelp" id="notelp_kelp">
                                    </div>
                                </div>
                                <div class="form-group row">
                                    <label class="col-sm-3 col-form-label">Status Kelompok</label>
                                    <div class="col-sm-4">
-                                       <select name="status_kelp" class="form-control">
-                                           <option value="opt1">Pilih Status
-                                           </option>
-                                           <option value="opt2"></option>
-                                           <option value="opt3"></option>
-                                           <option value="opt4"></option>
-                                           <option value="opt5"></option>
-                                           <option value="opt6"></option>
-                                           <option value="opt7"></option>
-                                           <option value="opt8"></option>
+                                       <select name="status_kelp" class="form-control" id="status_kelp">
+                                           <option value="">Pilih Status</option>
+                                           <!-- get sub kriteria -->
+                                           <?php
+                                                $query  = $pdo->getWhere('tb_subkriteria', 'kd_kriteria', 'KRT001');
+                                                $jumlah = $query->rowCount();
+                                                $no = 1;
+                                                if ($jumlah > 0) {
+                                                    while ($row = $query->fetch(PDO::FETCH_OBJ)) { ?>
+                                                    <!-- <input type="hidden"  name="kd_k_s_kelp" value="<?= $row->kd_kriteria ?>"> -->
+                                                    <option value="<?= $row->kd_subkriteria ?>"><?= $row->nm_subkriteria; ?></option>
+                                                <?php } ?>
+                                            <?php } ?>
                                        </select>
                                    </div>
                                </div>
                                <div class="form-group row">
                                    <label class="col-sm-3 col-form-label">Sertifikat Ternak</label>
                                    <div class="col-sm-8">
-                                       <input type="file" class="form-control" name="sertifi_kelp">
+                                       <input type="file" class="form-control" name="sertifi_kelp" id="sertifi_kelp">
+                                       <!-- <input type="hidden"  name="kd_k_sertifikat" value="KRT002"> -->
                                    </div>
                                </div>
                                <div class="form-group row">
                                    <label class="col-sm-3 col-form-label">Status Bantuan</label>
                                    <div class="col-sm-4">
-                                       <select name="status_bantuan" class="form-control">
-                                           <option value="opt1">Pilih Status Bantuan
-                                           </option>
-                                           <option value="opt2"></option>
-                                           <option value="opt3"></option>
+                                       <select name="status_bantuan" class="form-control" id="status_bantuan">
+                                           <option value="">Pilih Status Bantuan</option>
+                                           <!-- get sub kriteria -->
+                                           <?php
+                                                $query  = $pdo->getWhere('tb_subkriteria', 'kd_kriteria', 'KRT003');
+                                                $jumlah = $query->rowCount();
+                                                $no = 1;
+                                                if ($jumlah > 0) {
+                                                    while ($row = $query->fetch(PDO::FETCH_OBJ)) { ?>
+                                                    <!-- <input type="hidden"  name="kd_k_s_bantuan" value="<?= $row->kd_kriteria ?>"> -->
+                                                    <option value="<?= $row->kd_subkriteria ?>"><?= $row->nm_subkriteria; ?></option>
+                                                <?php } ?>
+                                            <?php } ?>
                                        </select>
                                    </div>
                                </div>
                                <div class="form-group row">
                                    <label class="col-sm-3 col-form-label">Sistem Pemeliharaan</label>
                                    <div class="col-sm-4">
-                                       <select name="sistem_pemilihan" class="form-control">
-                                           <option value="opt1">Pilih Sistem Pemeliharaan
-                                           </option>
-                                           <option value="opt2"></option>
-                                           <option value="opt3"></option>
-                                           <option value="opt4"></option>
+                                       <select name="sistem_pemelihara" class="form-control" id="sistem_pemelihara">
+                                           <option value="">Pilih Sistem Pemeliharaan</option>
+                                           <!-- get sub kriteria -->
+                                           <?php
+                                                $query  = $pdo->getWhere('tb_subkriteria', 'kd_kriteria', 'KRT004');
+                                                $jumlah = $query->rowCount();
+                                                $no = 1;
+                                                if ($jumlah > 0) {
+                                                    while ($row = $query->fetch(PDO::FETCH_OBJ)) { ?>
+                                                    <!-- <input type="hidden"  name="kd_k_s_pemelihara" value="<?= $row->kd_kriteria ?>"> -->
+                                                    <option value="<?= $row->kd_subkriteria ?>"><?= $row->nm_subkriteria; ?></option>
+                                                <?php } ?>
+                                            <?php } ?>
                                        </select>
                                    </div>
                                </div>
                                <div class="form-group row">
                                    <label class="col-sm-3 col-form-label">Pelayanan Kesehatan</label>
                                    <div class="col-sm-4">
-                                       <select name="plyn_kesehatan" class="form-control">
-                                           <option value="opt1">Pilih Pelayanan Kesehatan
-                                           </option>
-                                           <option value="opt2"></option>
-                                           <option value="opt3"></option>
-                                           <option value="opt4"></option>
+                                       <select name="plyn_kesehatan" class="form-control" id="plyn_kesehatan">
+                                           <option value="">Pilih Pelayanan Kesehatan</option>
+                                           <!-- get sub kriteria -->
+                                           <?php
+                                                $query  = $pdo->getWhere('tb_subkriteria', 'kd_kriteria', 'KRT005');
+                                                $jumlah = $query->rowCount();
+                                                $no = 1;
+                                                if ($jumlah > 0) {
+                                                    while ($row = $query->fetch(PDO::FETCH_OBJ)) { ?>
+                                                    <!-- <input type="hidden"  name="kd_k_pelayanan" value="<?= $row->kd_kriteria ?>"> -->
+                                                    <option value="<?= $row->kd_subkriteria ?>"><?= $row->nm_subkriteria; ?></option>
+                                                <?php } ?>
+                                            <?php } ?>
                                        </select>
                                    </div>
                                </div>
-                           </form>
 
-                       </div>
-                       <div class="modal-footer">
-                           <button type="button" class="btn btn-default btn-sm waves-effect "
-                               data-dismiss="modal">Keluar</button>
-                           <button type="submit" name="add" id="add" class="btn btn-primary btn-sm waves-effect waves-light ">Simpan
-                               Perubahan</button>
-                       </div>
+                           </div>
+                           <div class="modal-footer">
+                               <button type="button" class="btn btn-default btn-sm waves-effect "
+                                   data-dismiss="modal">Keluar</button>
+                               <button type="submit" name="add" id="add"
+                                   class="btn btn-primary btn-sm waves-effect waves-light ">Simpan
+                                   Perubahan</button>
+                           </div>
+                       </form>
                    </div>
                </div>
            </div>
