@@ -1,5 +1,5 @@
 {
     "require": {
-        "phpmailer/phpmailer": "v6.0.7"
+        "phpmailer/phpmailer": "v6.5.0"
     }
 }
