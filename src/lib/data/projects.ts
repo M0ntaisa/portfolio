@@ -94,7 +94,7 @@ export const items: Array<Project> = [
 			},
 		]
 	},
-	{
+/*	{
 		slug: 'simple-svelte-website',
 		color: '#ff3e00',
 		description:
@@ -111,6 +111,7 @@ export const items: Array<Project> = [
 		type: 'Website Template',
 		screenshots: []
 	}
+ */
 ];
 
 export const title = 'Projects';
